@@ -52,9 +52,7 @@
     }
 }
 
-body{
-    scroll-behavior: smooth;
-}
+html { scroll-behavior: smooth; }
 
 p{
     @apply font-monda tracking-[0.05rem];
