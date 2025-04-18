@@ -35,7 +35,7 @@ export default function ExperienceWith() {
     ];
 
     return (
-        <SectionLayout id={'experience'} header={'Experience With'} className={'text-white'} role={'container'}
+        <SectionLayout id={'experience_with'} header={'Experience With'} className={'text-white'} role={'container'}
                        label={'Author Experiences'}>
             <div className="flex items-center flex-wrap justify-evenly max-w-2xl mx-auto px-8 gap-3"
                  role="Language Experiences"

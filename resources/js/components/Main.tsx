@@ -27,7 +27,7 @@ export default function Main() {
                     Get in touch
                 </a>
                 <a
-                    href="/files/amit-dhakal-cv.pdf"
+                    href="/assets/cv.pdf"
                     download
                     className="bg-transparent border border-gray-200 px-6 py-2 hover:border-gray-300 text-gray-200 hover:text-gray-300 rounded-full transition-colors"
                 >
