@@ -13,4 +13,13 @@ class Experiences extends Model
     protected $casts = [
         'working'=>'boolean'
     ];
+
+    protected static function boot(){
+        parent::boot();
+
+        static::created(function($model){
+            $model['sort'] = $model->id;
+            $model->save();
+        });
+    }
 }

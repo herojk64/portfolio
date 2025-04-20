@@ -10,7 +10,8 @@ class ExperienceController extends Controller
 {
     public function index()
     {
-        $experiences = Experiences::latest()->get();
+        $experiences = Experiences::orderBy('sort')
+        ->orderBy('created_at')->get();
         return response()->json($experiences);
     }
 }

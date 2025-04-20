@@ -12,6 +12,11 @@ class ExperiencesSeeder extends Seeder
      */
     public function run(): void
     {
-        //
+        foreach(\App\Models\Experiences::all() as $model){
+            if(!$model->sort){
+                $model->sort = $model->id;
+                $model->save();
+            }
+        }
     }
 }
