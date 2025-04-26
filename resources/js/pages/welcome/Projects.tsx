@@ -8,6 +8,7 @@ import {faShareSquare} from '@fortawesome/free-solid-svg-icons';
 import { Swiper,SwiperSlide } from 'swiper/react';
 import { Autoplay } from 'swiper/modules';
 import { SwiperOptions } from 'swiper/types';
+import { Card,CardContent, CardHeader } from '@/components/ui/card';
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export default function Projects() {
@@ -18,8 +19,7 @@ export default function Projects() {
     const { projects } = projectContext;
 
     return (
-        <SectionLayout id={'projects'} header={'Projects'} className={'text-transparent bg-clip-text bg-gradient-to-r from-neutral-500 from-20% to-60% to-neutral-600'} role={'container'}
-                       label={'Projects'}>
+        <SectionLayout id={'projects'} header={'Projects'} label='Projects' className={'text-transparent bg-clip-text bg-gradient-to-r from-neutral-500 from-20% to-60% to-neutral-600'}>
             <Swiper
                 slidesPerView={1}
                 slidesPerGroup={1}
@@ -45,24 +45,31 @@ export default function Projects() {
                 className={`w-[95vw] px-4 max-w-4xl mx-auto`}>
                     {projects && projects.map((project) => (
                         <SwiperSlide key={project.id} className={'!h-auto'}>
-                            <article className={`h-full bg-primary-100 overflow-hidden rounded-xl`}>
-                                <img src={`/storage/${project.thumbnail}`} alt={`${project.title} Preview`}
-                                     className={`w-full h-[15rem] mb-4 object-cover aspect-5/5`} />
-                                <a href={project.live_url || project.repo_url} target={'_blank'} aria-disabled={(!!(project.live_url || project.repo_url))} className={` px-2`}>
-                                    {(project.live_url || project.repo_url) &&
-                                        <span className={`text-gray-400 font-semibold text-xs`}>
-                                            CLICK HERE TO VIST
-                                        </span>}
-                                    <header className={`text-2xl font-bold text-gray-200 flex items-center justify-between px-2`}>
-                                        <span>{project.title}</span>
-                                        {(project.live_url || project.repo_url) &&
-                                            <span>
-                                                <FontAwesomeIcon icon={faShareSquare} />
-                                            </span>
-                                        }
-                                    </header>
-                                </a>
-                            </article>
+                            <article className="h-full overflow-hidden rounded-2xl shadow-md bg-foreground">
+        <Card className="h-full flex flex-col bg-transparent shadow-none p-0">
+            <img
+                src={`/storage/${project.thumbnail}`}
+                alt={`${project.title} Preview`}
+                className="w-full h-48 object-cover"
+            />
+            <CardHeader className="text-neutral-700 text-lg font-bold px-4 mb-0">
+                        {project.title}
+                    </CardHeader>
+            <CardContent className="pb-3 mt-0 px-4">
+                {(project.live_url || project.repo_url) && (
+                    <a
+                        href={project.live_url || project.repo_url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-xs text-gray-400 hover:underline"
+                    >
+                            <FontAwesomeIcon icon={faShareSquare} className="w-5 h-5" />
+                        Click here to visit
+                    </a>
+                )}
+            </CardContent>
+        </Card>
+    </article>
                         </SwiperSlide>
                     )) as ReactNode}
             </Swiper>

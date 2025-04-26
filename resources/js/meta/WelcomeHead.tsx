@@ -3,6 +3,7 @@ import { Head } from '@inertiajs/react';
 export default function WelcomeHead() {
     return (
         <Head title="Amit Dhakal | Full-Stack Web Developer">
+            <link rel="canonical" href="https://amitdhakal2025.com.np/" />
             <meta name="description" content="Explore the professional portfolio of Amit Dhakal, a passionate full-stack web developer skilled in Laravel, React, JavaScript, and modern web technologies." />
             <meta name="robots" content="index, follow" />
             <meta name="keywords" content="Amit Dhakal, Full-Stack Developer, Web Developer, Laravel Developer, React Developer, JavaScript, TypeScript, PHP, Tailwind CSS, Frontend, Backend, InertiaJS, API Development, Portfolio, herojk64" />

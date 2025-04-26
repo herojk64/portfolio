@@ -1,3 +1,5 @@
+import { Button } from '@/components/ui/button'
+
 export default function Main() {
     const startDate = new Date('2023-01-01');
     const now = new Date();
@@ -9,7 +11,7 @@ export default function Main() {
             <header className="mt-8 text-4xl text-center font-bold">
                 I do code and<br />
                 make content{" "}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-200 to-primary-300">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-300 to-primary-400">
                     about it!
                 </span>
             </header>
@@ -20,19 +22,21 @@ export default function Main() {
                 I love clean code, efficient architecture, and bringing ideas to life through robust software.
             </p>
             <div className="mt-6 text-center flex items-center justify-center gap-4" aria-label='Content Information'>
+                <Button asChild variant={'default'} className='rounded-full py-4 px-6 bg-foreground text-black hover:bg-foreground/50 dark:bg-white/80 dark:hover:bg-white transition-colors text-lg'>
                 <a
                     href="mailto:herojk64@gmail.com"
-                    className="inline-block bg-gray-200 text-black font-semibold px-6 py-2 rounded-full shadow hover:bg-gray-300 transition-colors"
-                >
+                    >
                     Get in touch
                 </a>
+                    </Button>
+                    <Button className='rounded-full py-2 px-6 bg-transparent text-lg' asChild variant={'outline'}>
                 <a
                     href="/assets/cv.pdf"
                     download
-                    className="bg-transparent border border-gray-200 px-6 py-2 hover:border-gray-300 text-gray-200 hover:text-gray-300 rounded-full transition-colors"
                 >
                     Download CV
                 </a>
+                </Button>
             </div>
         </main>
     );
