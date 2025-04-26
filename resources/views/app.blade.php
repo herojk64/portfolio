@@ -25,7 +25,7 @@
             }
         })();
     </script>
-    <meta property="fb:app_id" content="config('app.FB_APP_ID')" />
+    <meta property="fb:app_id" content="{{config('app.FB_APP_ID')}}" />
 
 <link rel="canonical" href="https://amitdhakal2025.com.np/" />
 <meta name="description" content="Explore the professional portfolio of Amit Dhakal, a passionate full-stack web developer skilled in Laravel, React, JavaScript, and modern web technologies." />
