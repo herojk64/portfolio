@@ -9,4 +9,8 @@ class PrivacyPolicyController extends Controller
     public function index(){
         return inertia('privacypolicy');
     }
+
+    public function deletion(){
+        return inertia('deletion');
+    }
 }
