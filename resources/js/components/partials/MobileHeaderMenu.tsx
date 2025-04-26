@@ -1,11 +1,13 @@
 import React, { useRef, useState } from 'react'
 import { NavigationMenu, NavigationMenuList, NavigationMenuItem, NavigationMenuLink } from '../ui/navigation-menu'
+import { DialogTitle } from "@/components/ui/dialog";
 import { useIsMobile } from '@/hooks/use-mobile'
 import NavigationData from '@/data/NavigationData'
 import { ucfirst } from '@/lib/utils'
 import { Drawer, DrawerTrigger, DrawerContent, DrawerHeader, DrawerClose } from "@/components/ui/drawer";
 import { Menu, X } from "lucide-react";
 import DarkModeSwitch from './DarkModeSwitch'
+import { Link } from '@inertiajs/react'
 
 const MobileHeaderMenu = () => {
     const [open, setOpen] = useState<boolean>(false);
@@ -28,17 +30,22 @@ const MobileHeaderMenu = () => {
 
         >
             <DrawerTrigger
-            asChild
-            autoFocus={false}
-            className="">
+                asChild
+                autoFocus={false}
+                className="">
                 <Menu size={28} />
             </DrawerTrigger>
+
             <DrawerContent>
+                <DialogTitle className='hidden'>
+                    Menu
+                </DialogTitle>
                 <DrawerHeader className=''>
+
                     <div className='flex justify-between items-center text-neutral-700'>
 
-                    <DarkModeSwitch />
-                    <DrawerClose className='me-2 text-neutral-700'><X /></DrawerClose>
+                        <DarkModeSwitch />
+                        <DrawerClose className='me-2 text-neutral-700'><X /></DrawerClose>
                     </div>
                 </DrawerHeader>
                 <NavigationMenu className="min-w-full items-center justify-start">
@@ -46,12 +53,16 @@ const MobileHeaderMenu = () => {
                         {NavigationData.length > 0 &&
                             NavigationData.map((navigator, index) => (
                                 <NavigationMenuItem key={index} className="text-primary-700 hover:text-primary-900 transition-colors w-full block">
-                                    <NavigationMenuLink
-                                    className='text-xl text-neutral-700'
-                                        href={navigator.type === "ID" ? "#" + navigator.id : navigator.link}
-                                        target={navigator.type === 'Blank' ? "_blank" : '_self'}
-                                        onClick={handleLinkClick}
-                                    >{ucfirst(navigator.name)}</NavigationMenuLink>
+                                    <NavigationMenuLink asChild>
+                                        <Link
+                                            className='text-xl text-neutral-700'
+                                            href={navigator.type === "ID" ? `${!navigator.global ? '/' : ''}#${navigator.id || ''}` : (navigator.link || '')}
+                                            target={navigator.type === 'Blank' ? "_blank" : ""}
+                                            onClick={handleLinkClick}
+                                        >
+                                            {ucfirst(navigator.name)}
+                                        </Link>
+                                    </NavigationMenuLink>
                                 </NavigationMenuItem>
                             ))
                         }

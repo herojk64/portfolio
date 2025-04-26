@@ -4,22 +4,26 @@ const NavigationData:NavigationDataInterface[] = [
     {
         name:'home',
         type:'ID',
-        id:"home"
+        id:"home",
+        global:false
     },
     {
         name:'projects',
         type:'ID',
-        id:'projects'
+        id:'projects',
+        global:false
     },
     {
         name:'experience',
         type:'ID',
-        id:'experience'
+        id:'experience',
+        global:false
     },
     {
         name:'contact',
         type:'ID',
-        id:'contact'
+        id:'contact',
+        global:true
     },
 ]
 

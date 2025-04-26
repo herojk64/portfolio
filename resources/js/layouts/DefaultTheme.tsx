@@ -10,11 +10,13 @@ interface DefaultThemeProps extends React.HTMLAttributes<HTMLDivElement> {
 export default function DefaultTheme({ children, className, ...props }: DefaultThemeProps) {
     return (
         <div
-            className={cn('min-h-screen bg-background text-neutral-700 dark:text-neutral-800', className)}
+            className={cn('min-h-screen bg-background text-neutral-700 dark:text-neutral-800 grid grid-rows-[auto_1fr_auto]', className)}
             {...props}
         >
             <Header />
+            <div>
             {children}
+            </div>
             <Contact />
         </div>
     );

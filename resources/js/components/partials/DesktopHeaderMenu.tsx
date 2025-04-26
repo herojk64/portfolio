@@ -1,9 +1,10 @@
 import React from 'react'
 import { useIsMobile } from '@/hooks/use-mobile'
-import { NavigationMenu,NavigationMenuList,NavigationMenuItem,NavigationMenuLink } from '../ui/navigation-menu'
+import { NavigationMenu,NavigationMenuList,NavigationMenuItem, NavigationMenuLink } from '../ui/navigation-menu'
 import NavigationData from '@/data/NavigationData'
 import { ucfirst } from '@/lib/utils'
 import DarkModeSwitch from './DarkModeSwitch'
+import { Link } from '@inertiajs/react'
 
 export const DesktopHeaderMenu = () => {
   return (
@@ -14,11 +15,13 @@ export const DesktopHeaderMenu = () => {
         {NavigationData.length >0  &&
             NavigationData.map((navigator,index)=>(
                 <NavigationMenuItem key={index} className="text-primary-700 hover:text-primary-900 transition-colors">
-                    <NavigationMenuLink
-                        href={navigator.type === "ID"?"#"+navigator.id:navigator.link}
+                    <NavigationMenuLink asChild>
+                    <Link
+                        href={navigator.type === "ID"?`${!navigator.global?'/':''}#${navigator.id || ''}`:(navigator.link || '')}
                         target={navigator.type === 'Blank'?"_blank":'_self'}
                         className='text-lg'
-                    >{ucfirst(navigator.name)}</NavigationMenuLink>
+                        >{ucfirst(navigator.name)}</Link>
+                        </NavigationMenuLink>
                 </NavigationMenuItem>
             ))
         }
