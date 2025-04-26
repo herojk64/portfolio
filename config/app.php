@@ -123,4 +123,6 @@ return [
         'store' => env('APP_MAINTENANCE_STORE', 'database'),
     ],
 
+    'FB_APP_ID'=> env('FB_APP_ID',null)
+
 ];
